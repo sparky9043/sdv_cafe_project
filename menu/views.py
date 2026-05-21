@@ -67,4 +67,4 @@ class ItemDetailView(FormView, DetailView):
         )
         print(new_order)
 
-        return redirect(reverse("menu:item_detail", kwargs={"pk": menu_item.pk}))
+        return redirect(reverse("menu:item_list"))
