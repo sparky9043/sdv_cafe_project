@@ -2,10 +2,10 @@ from django.contrib import admin
 from .models import (
     OrderItem,
     Size,
-    Order,
+    OrderSummary,
 )
 
 # Register your models here.
 admin.site.register(OrderItem)
-admin.site.register(Order)
+admin.site.register(OrderSummary)
 admin.site.register(Size)

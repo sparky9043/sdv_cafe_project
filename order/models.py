@@ -34,7 +34,7 @@ class OrderItem(models.Model):
         return f"{self.quantity}x {self.size} - {self.menu_item.name}"
 
 
-class Order(models.Model):
+class OrderSummary(models.Model):
     time_added = models.DateTimeField(auto_now_add=True)
     order_complete = models.BooleanField(default=False)
     order_items = models.ManyToManyField(
