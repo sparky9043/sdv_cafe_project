@@ -136,27 +136,7 @@
 <body class="font-body-md text-body-md overflow-x-hidden">
   <!-- TopNavBar -->
   <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md">
-    <nav class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
-      <div class="flex items-center gap-3">
-        <img alt="Botanical Heritage Logo" class="w-10 h-10 rounded-lg object-contain"
-          src="https://lh3.googleusercontent.com/aida/ADBb0uh7py0ANLgWZ0cXFfO7G2dGC43yRvR-RcKbbJE9p1kk6p2KGTKHNWvIKIsFeDsTr38Moc6YOscK4zdSKfKUU4n69hMQyczeytLeM7OUdIzwinfRxsBne0lLgi5hzl7N5-Lg7DmdFcJ3R_PX-ErZ03qpGNC-YcIiE4AtZuAR0vGnrEnPZp7ubcXox24Mjr7_7iuTP0mkxQsg_65uTUEDwLrnJQwtayakS9jaB0Eim0Z0lDViu9ssbjRdJR6r" />
-        <span class="font-display-lg text-headline-md text-primary tracking-tight">Botanical Heritage</span>
-      </div>
-      <div class="hidden md:flex items-center gap-stack-lg">
-        <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
-          href="#">About</a>
-        <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
-          href="#">Contact</a>
-        <button
-          class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all">
-          Order Now
-        </button>
-      </div>
-      <button class="md:hidden p-2 text-primary">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </nav>
+  {% include 'menu/partials/nav.html' %}
   </header>
   {% block main %}
   {% endblock main %}
