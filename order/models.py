@@ -33,6 +33,15 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.quantity}x {self.size} - {self.menu_item.name}"
 
+    def _get_price(self):
+        surcharge = 0
+        if self.size.type == "medium":
+            surcharge += 0.50
+        elif self.size.type == "large":
+            surcharge += 1.00
+        current_price = float(self.menu_item.price)
+        return current_price + surcharge
+
 
 class OrderSummary(models.Model):
     time_added = models.DateTimeField(auto_now_add=True)

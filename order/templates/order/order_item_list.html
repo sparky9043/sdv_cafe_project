@@ -1,3 +1,69 @@
-{% for item in order_items %}
-  <li>{{ item }}</li>
-{% endfor %}
+{% extends 'menu/base.html' %}
+
+{% block main %}
+<main class="min-h-screen pt-32 pb-stack-lg px-margin-mobile flex items-center justify-center">
+  <div
+    class="w-full max-w-lg bg-surface-container-lowest p-stack-lg rounded-xl shadow-sm border border-outline-variant/5">
+    <header class="text-center mb-stack-lg">
+      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">
+        Order Summary</h1>
+      <p class="font-body-md text-body-md text-on-surface-variant">Review your selection before finalizing.</p>
+    </header>
+    <!-- Order List -->
+    <div class="space-y-gutter mb-stack-lg">
+      {% for order_item in order_items %}
+      <div class="flex justify-between items-start pb-stack-sm border-b border-outline-variant/10">
+        <div>
+          <h3 class="font-body-lg text-body-lg text-on-surface font-semibold">
+            {{ order_item.menu_item.name }}
+          </h3>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{{ order_item.size }} • x {{ order_item.quantity }}
+            {% if order_item.size.type == 'medium' %}
+              +$0.50 per item
+            {% elif order_item.size.type == 'large' %}
+              +$1.00 per item
+            {% endif %}
+          </p>
+        </div>
+        <span class="font-body-lg text-body-lg text-on-surface">
+          ${{ order_item.menu_item.price }}
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- Totals -->
+    <div class="space-y-4 mb-stack-lg">
+      <div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+        <span>Subtotal</span>
+        <span>${{ subtotal }}</span>
+      </div>
+      <div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+        <span>Tax ({{ tax_percent }}%)</span>
+        <span>${{ tax_amount }}</span>
+      </div>
+      <div class="flex justify-between items-center pt-4 border-t-2 border-primary/10">
+        <span class="font-headline-md text-headline-md text-primary">Total</span>
+        <span class="font-headline-md text-headline-md text-primary">${{ total_bill }}</span>
+      </div>
+    </div>
+    <!-- Action -->
+    <button
+      class="w-full bg-primary text-on-primary py-4 rounded-xl font-body-lg text-body-lg font-bold btn-hover-effect transition-all flex items-center justify-center gap-2 group">
+      Place Order
+      <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+    </button>
+    <!-- Security/Note -->
+    <div class="mt-stack-md text-center">
+      <p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-[16px]">lock</span>
+        Secure checkout powered by OrchardPay
+      </p>
+    </div>
+  </div>
+</main>
+{% endblock main %}
+
+
+{% comment %} {% for item in order_items %}
+<li>{{ item }}</li>
+{% endfor %} {% endcomment %}
