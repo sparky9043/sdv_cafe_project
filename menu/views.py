@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import (
+    TemplateView,
+    ListView,
+    FormView,
+    DetailView,
+)
 from .models import MenuItem
 
 
@@ -25,3 +30,9 @@ class ItemListView(ListView):
         context = super().get_context_data(**kwargs)
         context["active_page"] = "item_list"
         return context
+
+
+class ItemDetailView(DetailView):
+    model = MenuItem
+    template_name = "menu/item_detail.html"
+    context_object_name = "item"

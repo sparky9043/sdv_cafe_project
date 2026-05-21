@@ -1,0 +1,63 @@
+{% extends 'menu/base.html' %}
+
+{% block main %}
+<main class="pt-32 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-2xl mx-auto">
+  <!-- Breadcrumb -->
+  <div class="flex items-center gap-2 mb-8 text-on-surface-variant font-label-sm text-label-sm">
+    <span>Menu</span>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <span>Drinks</span>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <span class="text-primary font-bold">Ancient Fruit Latte</span>
+  </div>
+  <!-- Product Details Section -->
+  <div class="flex flex-col">
+    <div class="mb-stack-sm">
+      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">
+        {{ item.name }}</h1>
+      <div class="text-secondary font-headline-md text-headline-md">${{ item.price }}</div>
+    </div>
+    <p class="text-on-surface-variant font-body-lg text-body-lg mb-8 leading-relaxed">
+      A seasonal classic made with fresh orchard pumpkins and a touch of valley magic. Sweet, slightly mystical, and
+      deeply aromatic brew.
+    </p>
+    <form class="space-y-8">
+      <!-- Size Selection -->
+      <div>
+        <label class="block font-label-sm text-label-sm text-on-surface mb-4 uppercase tracking-wider" for="size">Select
+          Size</label>
+        <select
+          class="w-full h-14 bg-surface-container-low border-outline-variant/30 rounded-lg font-body-md text-body-md px-4 focus:border-primary focus:ring-1 focus:ring-primary transition-all cursor-pointer appearance-none"
+          id="size">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+      <!-- Quantity & Actions -->
+      <div class="flex flex-wrap items-center gap-6">
+        <div
+          class="flex items-center bg-surface-container border border-outline-variant/30 rounded-lg overflow-hidden h-14">
+          <button
+            class="w-14 h-full flex items-center justify-center hover:bg-surface-container-high transition-colors text-primary"
+            onclick="adjustQty(-1)" type="button">
+            <span class="material-symbols-outlined">remove</span>
+          </button>
+          <span class="w-12 text-center font-bold text-body-lg" id="qty">1</span>
+          <button
+            class="w-14 h-full flex items-center justify-center hover:bg-surface-container-high transition-colors text-primary"
+            onclick="adjustQty(1)" type="button">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+        <button
+          class="flex-1 bg-primary text-on-primary h-14 rounded-lg font-headline-md text-headline-md flex items-center justify-center gap-3 hover:opacity-90 transition-all shadow-sm"
+          type="submit">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          Add to Cart
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+{% endblock main %}
