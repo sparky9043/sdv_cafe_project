@@ -1,6 +1,14 @@
 from django.db import models
 
 
+class Order(models.Model):
+    time_added = models.DateTimeField(auto_now_add=True)
+    order_complete = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Order #: {self.pk} | Completed: {self.order_complete}"
+
+
 class Size(models.Model):
     type = models.CharField(
         max_length=10,
@@ -28,6 +36,10 @@ class OrderItem(models.Model):
         related_name="order_items",
         on_delete=models.SET_NULL,
         null=True,
+    )
+    orders = models.ManyToManyField(
+        Order,
+        related_name="order_items",
     )
 
     def __str__(self):
