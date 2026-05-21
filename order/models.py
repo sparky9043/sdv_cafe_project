@@ -11,6 +11,9 @@ class Size(models.Model):
         ],
     )
 
+    def __str__(self):
+        return self.type
+
 
 # Create your models here.
 class OrderItem(models.Model):
