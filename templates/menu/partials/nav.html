@@ -5,9 +5,23 @@
     <span class="font-display-lg text-headline-md text-primary tracking-tight">Botanical Heritage</span>
   </div>
   <div class="hidden md:flex items-center gap-stack-lg">
-    <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
-    <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
-      href="#">About</a>
+    {% comment %} <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a> {% endcomment %}
+    <a
+      {% if active_page == 'home' %}
+      class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1"
+      {% else %}
+      class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+      {% endif %}
+      href="{% url 'menu:home' %}"
+    >Home</a>
+    <a
+      {% if active_page == 'item_list' %}
+      class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1"
+      {% else %}
+      class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+      {% endif %}
+      href="{% url 'menu:item_list' %}"
+    >Menu</a>
     <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
       href="#">Contact</a>
     <button
