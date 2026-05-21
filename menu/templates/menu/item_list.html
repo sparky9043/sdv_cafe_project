@@ -1,0 +1,208 @@
+{% extends 'menu/base.html' %}
+
+{% block main %}
+<main class="pt-32 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+  <!-- Hero Title -->
+  <div class="mb-stack-lg text-center md:text-left">
+    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">
+      Our Seasonal Bounty</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Hand-crafted offerings inspired by the
+      valley's harvest. Every ingredient tells a story of quality, transparency, and care.</p>
+  </div>
+  <!-- Drinks Section -->
+  <section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-32 items-center" id="drinks">
+    <div class="md:col-span-5 order-2 md:order-1">
+      <div class="flex items-center gap-2 mb-stack-sm">
+        <span class="material-symbols-outlined text-primary">local_cafe</span>
+        <h2 class="font-headline-md text-headline-md text-primary">Drinks</h2>
+      </div>
+      <div class="space-y-stack-md">
+      {% for item in items %}
+        {% if item.category.name == 'drink' %}
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">{{ item.name }}</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Freshly smoked valley salmon with caper cream
+              cheese.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">{{ item.price }}</span>
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+  </section>
+  <!-- Food Section -->
+  <section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-32 items-center" id="food">
+    <div class="md:col-span-7 flex justify-center">
+      <div class="relative group">
+        <div
+          class="absolute -inset-4 bg-secondary/5 rounded-full scale-110 blur-2xl group-hover:bg-secondary/10 transition-all duration-700">
+        </div>
+        <img alt="Pixel art of a golden omelette served with fresh garden greens"
+          class="relative z-10 w-full max-w-md h-auto object-contain"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2z5Olit_hCLZI2kgr8jLwy9fdnwPid2n_9oWIoz-3yD4vS5C2oUANtz3Dt8qdVchgsyprWJfHoYX3NLG2nPoquv6_gTwCUqlRLrOh-1bnEbK86knRq_ooFR3_5S08iI79KlPZGWKxaaSYb4lPp8zpOb_aTHn2S-qAIR_AS-fTdanB2jSAF4NY36DE7UOi1_Huns86Bky26FA0o_XiacUL5yfbZwzvREzM3f63eD_CxrmGa7SZRFxGJTdBsYdj1Mw9aDIuvWlXUOYo">
+      </div>
+    </div>
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-2 mb-stack-sm">
+        <span class="material-symbols-outlined text-primary">restaurant</span>
+        <h2 class="font-headline-md text-headline-md text-primary">Food</h2>
+      </div>
+      <div class="space-y-stack-md">
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Marnie's Farmhouse Egg Omelette</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Three organic eggs, goat cheese, and garden
+              herbs.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">12.00</span>
+        </div>
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Leah's Fiddlehead Fern Toast</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Sourdough with sautéed fiddleheads and garlic
+              confit.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">13.00</span>
+        </div>
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Willy's Smoked Salmon Bagel</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Freshly smoked valley salmon with caper cream
+              cheese.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">14.00</span>
+        </div>
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Mayor Lewis's Truffle Avocado Toast</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Smashed avocado topped with premium truffle
+              oil shavings.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">14.00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Desserts Section -->
+  <section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-32 items-center" id="desserts">
+    <div class="md:col-span-5 order-2 md:order-1">
+      <div class="flex items-center gap-2 mb-stack-sm">
+        <span class="material-symbols-outlined text-primary">bakery_dining</span>
+        <h2 class="font-headline-md text-headline-md text-primary">Desserts</h2>
+      </div>
+      <div class="space-y-stack-md">
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Ancient Fruit Tart</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Delicate shortcrust pastry with shimmer
+              glaze.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">8.00</span>
+        </div>
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Starfruit Cheesecake Slice</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Velvety cheesecake with a citrus starfruit
+              reduction.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">9.00</span>
+        </div>
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Sweet Gem Berry Macaron</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Rare flavor profile, incredibly light and
+              airy.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">7.50</span>
+        </div>
+        <div class="flex justify-between items-end border-b border-on-surface/10 pb-2">
+          <div class="flex-1 pr-4">
+            <span class="font-body-lg text-body-lg font-semibold block">Evelyn's Grandma Cookie</span>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">A warm, comforting hug in cookie form. Baked
+              fresh.</p>
+          </div>
+          <span class="font-body-lg text-body-lg text-secondary">5.50</span>
+        </div>
+      </div>
+    </div>
+    <div class="md:col-span-7 order-1 md:order-2 flex justify-center">
+      <div class="relative group">
+        <div
+          class="absolute -inset-4 bg-tertiary-fixed/5 rounded-full scale-110 blur-2xl group-hover:bg-tertiary-fixed/10 transition-all duration-700">
+        </div>
+        <img alt="Pixel art of an assortment of desserts including a muffin, tart, and macaron"
+          class="relative z-10 w-full max-w-md h-auto object-contain"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRkPuEejDLGYvdnaOYHLFdrkzQSMfd93X1WgvCmFeesomqm2uUAq7ymNGAzDr1RdfKIH7pY5at3pUNRf7oRnTw_d9JpXW3xj0n4E-uEDhyFgKagYDEmr1lp6mwNBAv_NyalBw8E7VkuLRlqeD6YIn2NvdFvSsYOcqqIETylZJxUPl4It87NyEOIkuYr7XL15jH1Ab7kUPq76t_V8L2Ve0NlKx9tGdrFy5-cmr2pOkWTaKHmCCIN9piN_iO_CzpFZAjHbC9CsxtMcm7">
+      </div>
+    </div>
+  </section>
+  <!-- Merch Section -->
+  <section class="bg-white/40 p-margin-mobile md:p-margin-desktop rounded-xl mb-32 border border-outline-variant/20"
+    id="merch">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+      <div class="md:col-span-4 flex justify-center">
+        <img alt="Pixel art of a cozy mug with a leaf logo and a cute bee keychain"
+          class="w-full max-w-xs h-auto object-contain"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2MO8hKne6wxi_-3lEWSt3kzJX0j1vQxTFLSJvJfdv1gShLi1fHpNIG6rDC_vGK_SCaDLdjX749EcGPaGqpjQ73T7TRV8_3LQIOU2Bf9z73Ufi4Wpcq28QRFnv2V4Ih3MOspP5rebC4K1usH_OcOMZuFFqJYGTWGqm94eTSiE2_ZAvidkmXdUrt68R7zMBuCt9VacpA2fzcfSKjFZ2nDGEp-yl8Muqm2MDaXYDJbUMTN6YgYkzFYUZSKgR_lN6SGp2tJYKl73TmEUR">
+      </div>
+      <div class="md:col-span-8">
+        <div class="flex items-center gap-2 mb-stack-sm">
+          <span class="material-symbols-outlined text-primary">shopping_basket</span>
+          <h2 class="font-headline-md text-headline-md text-primary">Merch Store</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
+          <div
+            class="p-stack-sm rounded-lg hover:bg-white/60 transition-colors border border-transparent hover:border-outline-variant/20">
+            <div class="flex justify-between mb-1">
+              <span class="font-body-lg text-body-lg font-semibold">Pelican Town Ceramic Mug</span>
+              <span class="text-secondary">18.00</span>
+            </div>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Hand-thrown stoneware for your morning
+              ritual.</p>
+          </div>
+          <div
+            class="p-stack-sm rounded-lg hover:bg-white/60 transition-colors border border-transparent hover:border-outline-variant/20">
+            <div class="flex justify-between mb-1">
+              <span class="font-body-lg text-body-lg font-semibold">Stardrop Saloon Pint Glass</span>
+              <span class="text-secondary">16.00</span>
+            </div>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Durable glassware with a retro pub feel.</p>
+          </div>
+          <div
+            class="p-stack-sm rounded-lg hover:bg-white/60 transition-colors border border-transparent hover:border-outline-variant/20">
+            <div class="flex justify-between mb-1">
+              <span class="font-body-lg text-body-lg font-semibold">Junimo Plush Keychain</span>
+              <span class="text-secondary">12.00</span>
+            </div>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">A tiny forest spirit to guide your travels.
+            </p>
+          </div>
+          <div
+            class="p-stack-sm rounded-lg hover:bg-white/60 transition-colors border border-transparent hover:border-outline-variant/20">
+            <div class="flex justify-between mb-1">
+              <span class="font-body-lg text-body-lg font-semibold">Stardew Farm Co. Tote Bag</span>
+              <span class="text-secondary">20.00</span>
+            </div>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">Heavy-duty canvas for your market hauls.</p>
+          </div>
+        </div>
+        <div class="mt-stack-md">
+          <button
+            class="border-2 border-primary text-primary px-stack-lg py-3 rounded-lg font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-all duration-300">Browse
+            Full Collection</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock main %}
+{% comment %} <ul>
+  {% for item in items %}
+  <li>
+    <div>
+      {{ item.name }} ${{ item.price }}
+    </div>
+  </li>
+  {% endfor %}
+</ul> {% endcomment %}
