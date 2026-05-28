@@ -43,7 +43,7 @@ class OrderItem(models.Model):
         return current_price + surcharge
 
 
-class OrderSummary(models.Model):
+class Cart(models.Model):
     time_added = models.DateTimeField(auto_now_add=True)
     order_complete = models.BooleanField(default=False)
     order_items = models.ManyToManyField(
